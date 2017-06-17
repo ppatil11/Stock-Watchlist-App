@@ -1,0 +1,27 @@
+#_headWrapper{
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+}
+
+#_heading{
+	color: cadetblue;
+}
+
+#_contentWrapper{
+	padding: 5% 10%;
+}
+
+#_input , #_addBtn{
+	border-radius: 2em;
+}
+
+#_addBtn{
+	background-color: darkslategrey;
+	color: white;
+}
+
+#_serverresponse{
+	vertical-align: -moz-middle-with-baseline;
+	padding-left: 10%;
+}
