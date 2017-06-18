@@ -19,7 +19,7 @@
       die('Could not connect: ' . mysqli_error());
    }else{
       echo "Connection successful";
-      echo $conn;
+     // echo $conn;
    }
    
    $query = "CREATE DATABASE IF NOT EXISTS stock_db";
