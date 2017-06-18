@@ -1,23 +1,35 @@
 <?php
+/* 
+*    This file needs to be included while deploying the application 
+*    on heroku cloud hosting platform. It contains all the details
+*    about the database connection for heroku MySQL clearDB
 
-   $dbhost = 'localhost';
-   $dbuser = 'root';
-   $dbpass = '';
-   $db     = 'stock symbol';
-   $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+*/
    
+   $url = parse_url(getenv("mysql://b8854ec45c5cb2:7993fce1@us-cdbr-iron-east-03.cleardb.net/heroku_03952f216b6d47f?reconnect=true"));
+
+   $server     = 'us-cdbr-iron-east-03.cleardb.net';
+   $username   = 'b8854ec45c5cb2';
+   $password   = '7993fce1';
+   $db         = 'heroku_03952f216b6d47f';
+
    $conn = mysqli_connect($server, $username, $password, $db);
 
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error($conn));
+   }else{
+    //  echo "Connection successful";
+     // echo $conn;
    }
-
-   $query = "CREATE DATABASE IF NOT EXISTS stock_db";
-   $retval = mysqli_query($conn, $query);
    
-   if(! $retval ) {
-      die('Could not create database: ' . mysqli_error($conn));
-   } 
+   mysqli_select_db($conn, $db);
+
+   // $query = "CREATE DATABASE IF NOT EXISTS stock_db";
+   // $retval = mysqli_query($conn, $query);
+   
+   // if(! $retval ) {
+   //    die('Could not create database: ' . mysqli_error($conn));
+   // } 
 //   echo "Database stock_db created successfully\n";
 //   echo 'Connected successfully';
 
@@ -30,14 +42,14 @@
                   `volume` INT(11) DEFAULT NULL,
                   `tradetime` DATETIME DEFAULT NULL,
                   PRIMARY KEY (`symbol`))  ENGINE=INNODB DEFAULT CHARSET=UTF8";
-   mysqli_select_db($conn, 'stock_db');
+  // mysqli_select_db($conn, 'stock_db');
    $retval = mysqli_query($conn, $query);
 //   echo "Table quotes created successfully";
 
    $query = "SELECT * from quotes";
    $result = mysqli_query($conn, $query);
    $rows = mysqli_num_rows($result);
-
+ 
    if ($rows == 0) {
       //Insert data into table quotes
        $query = "INSERT INTO `quotes` VALUES
