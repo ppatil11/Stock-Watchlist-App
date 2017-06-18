@@ -16,19 +16,17 @@
    $conn = mysqli_connect($server, $username, $password, $db);
 
    if(! $conn ) {
-      die('Could not connect: ' . mysqli_error());
+      die('Could not connect: ' . mysqli_error($conn));
    }else{
       echo "Connection successful";
      // echo $conn;
    }
    
-   $retval = $conn->query("CREATE DATABASE IF NOT EXISTS stock_db");
-
-   // $query = "CREATE DATABASE IF NOT EXISTS stock_db";
-   // $retval = mysqli_query($conn, $query);
+   $query = "CREATE DATABASE IF NOT EXISTS stock_db";
+   $retval = mysqli_query($conn, $query);
    
    if(! $retval ) {
-      die('Could not create database: ' . mysqli_error());
+      die('Could not create database: ' . mysqli_error($conn));
    } 
 //   echo "Database stock_db created successfully\n";
 //   echo 'Connected successfully';
