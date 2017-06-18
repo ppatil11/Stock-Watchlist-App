@@ -1,11 +1,20 @@
 <?php
 
-   $dbhost = 'localhost';
-   $dbuser = 'root';
-   $dbpass = '';
-   $db     = 'stock symbol';
-   $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+   // $dbhost = 'localhost';
+   // $dbuser = 'root';
+   // $dbpass = '';
+   // $db     = 'stock symbol';
+   // $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
    
+   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+   $server = $url["host"];
+   $username = $url["ppatil11@hawk.iit.edu"];
+   $password = $url["Intelli@123"];
+   $db = substr($url["path"], 1);
+
+   $conn = new mysqli($server, $username, $password, $db);
+
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
    }
