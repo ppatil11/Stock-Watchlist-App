@@ -6,12 +6,12 @@
    // $db     = 'stock symbol';
    // $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
    
-   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+   $url = parse_url(getenv("mysql://b8854ec45c5cb2:7993fce1@us-cdbr-iron-east-03.cleardb.net/heroku_03952f216b6d47f?reconnect=true"));
 
-   $server = $url["host"];
-   $username = $url["user"];
-   $password = $url["pass"];
-   $db = substr($url["path"], 1);
+   $server = $url["us-cdbr-iron-east-03.cleardb.net"];
+   $username = $url["b8854ec45c5cb2"];
+   $password = $url["7993fce1"];
+   $db = substr($url["heroku_03952f216b6d47f"], 1);
 
    $conn = new mysqli($server, $username, $password, $db);
 
