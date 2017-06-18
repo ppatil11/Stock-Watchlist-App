@@ -8,10 +8,10 @@
    
    $url = parse_url(getenv("mysql://b8854ec45c5cb2:7993fce1@us-cdbr-iron-east-03.cleardb.net/heroku_03952f216b6d47f?reconnect=true"));
 
-   $server = $url["us-cdbr-iron-east-03.cleardb.net"];
-   $username = $url["b8854ec45c5cb2"];
-   $password = $url["7993fce1"];
-   $db = $url["heroku_03952f216b6d47f"];
+   $server     = 'us-cdbr-iron-east-03.cleardb.net';
+   $username   = 'b8854ec45c5cb2';
+   $password   = '7993fce1';
+   $db         = 'heroku_03952f216b6d47f';
 
    $conn = mysqli_connect($server, $username, $password, $db);
 
