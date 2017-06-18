@@ -13,7 +13,7 @@
    $password = $url["7993fce1"];
    $db = substr($url["heroku_03952f216b6d47f"], 1);
 
-   $conn = new mysqli($server, $username, $password, $db);
+   $conn = mysqli_connect($server, $username, $password, $db);
 
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error());
