@@ -18,7 +18,7 @@
    if(! $conn ) {
       die('Could not connect: ' . mysqli_error($conn));
    }else{
-      echo "Connection successful";
+    //  echo "Connection successful";
      // echo $conn;
    }
    
@@ -49,6 +49,7 @@
    $query = "SELECT * from quotes";
    $result = mysqli_query($conn, $query);
    $rows = mysqli_num_rows($result);
+   echo $rows;
    if ($rows == 0) {
       //Insert data into table quotes
        $query = "INSERT INTO `quotes` VALUES
