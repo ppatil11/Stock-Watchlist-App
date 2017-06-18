@@ -22,8 +22,10 @@
      // echo $conn;
    }
    
-   $query = "CREATE DATABASE IF NOT EXISTS stock_db";
-   $retval = mysqli_query($conn, $query);
+   $retval = $conn->query("CREATE DATABASE IF NOT EXISTS stock_db");
+
+   // $query = "CREATE DATABASE IF NOT EXISTS stock_db";
+   // $retval = mysqli_query($conn, $query);
    
    if(! $retval ) {
       die('Could not create database: ' . mysqli_error());
