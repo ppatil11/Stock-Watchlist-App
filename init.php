@@ -22,12 +22,14 @@
      // echo $conn;
    }
    
-   $query = "CREATE DATABASE IF NOT EXISTS stock_db";
-   $retval = mysqli_query($conn, $query);
+   mysqli_select_db($conn, $db);
+
+   // $query = "CREATE DATABASE IF NOT EXISTS stock_db";
+   // $retval = mysqli_query($conn, $query);
    
-   if(! $retval ) {
-      die('Could not create database: ' . mysqli_error($conn));
-   } 
+   // if(! $retval ) {
+   //    die('Could not create database: ' . mysqli_error($conn));
+   // } 
 //   echo "Database stock_db created successfully\n";
 //   echo 'Connected successfully';
 
@@ -40,7 +42,7 @@
                   `volume` INT(11) DEFAULT NULL,
                   `tradetime` DATETIME DEFAULT NULL,
                   PRIMARY KEY (`symbol`))  ENGINE=INNODB DEFAULT CHARSET=UTF8";
-   mysqli_select_db($conn, 'stock_db');
+  // mysqli_select_db($conn, 'stock_db');
    $retval = mysqli_query($conn, $query);
 //   echo "Table quotes created successfully";
 
